@@ -9,6 +9,7 @@ class @Validation
       name = nameEle.val()
       if(!name.match(nameRegex))
         event.preventDefault()
+        alert('Your name cannot contain numbers')
 
 $(document).ready () =>
   val = new Validation()
