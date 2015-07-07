@@ -10,6 +10,7 @@
     = f.label :name
     = f.text_field :name
     = f.label '(Client)'
+    %span.nameError
   .field
     = f.label :email
     = f.text_field :email
@@ -17,8 +18,8 @@
   .field
     = f.label :comment
     = f.label '(Database)'
-    %hr
-    = f.text_area :comment,  style: 'width:100%'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'
+    %hr
+    = f.text_area :comment,  class: 'paper'
 

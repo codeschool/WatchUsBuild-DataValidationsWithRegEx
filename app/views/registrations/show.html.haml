@@ -1,15 +1,18 @@
 %p#notice= notice
+.well
+  %p
+    %b Name:
+    = @registration.name
+  %p
+    %b Email:
+    = @registration.email
 
-%p
-  %b Name:
-  = @registration.name
-%p
-  %b Email:
-  = @registration.email
-%p
-  %b Comment:
-  = @registration.comment
+- if @registration.denied?
+  .alert.alert-warning
+    This user was not allowed to post their message due to inappropriate content.
+-else
+  .well
+    %h4 Comment:
+    %p.paper
+      = @registration.comment
 
-= link_to 'Edit', edit_registration_path(@registration)
-\|
-= link_to 'Back', registrations_path
