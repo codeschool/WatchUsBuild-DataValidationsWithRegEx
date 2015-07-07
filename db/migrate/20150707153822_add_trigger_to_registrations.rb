@@ -5,8 +5,8 @@ class AddTriggerToRegistrations < ActiveRecord::Migration
       AFTER INSERT ON "registrations"
       BEGIN
           UPDATE "registrations" 
-          SET comment = 'This comment has been denied.' 
-          WHERE id = NEW.id AND comment REGEXP "heck|geeze|bad";
+          SET comment = '#{Registration::COMMENT_PATTERN}' 
+          WHERE id = NEW.id AND comment REGEXP "#{Registration::BAD_COMMENT_TEXT}";
       END;
     SQL
   end
