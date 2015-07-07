@@ -16,7 +16,6 @@ class @Validation
       alert('Your name only be lowercase letters and spaces.')
     else
       @addGood()
-      $('#registration_name').addClass('good')
 
   addError: () ->
     @nameEle.addClass('error').removeClass('good')
