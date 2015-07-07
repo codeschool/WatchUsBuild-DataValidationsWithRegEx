@@ -26,7 +26,7 @@ class @Validation
     @nameError.html('')
     
 
-$(document).ready () =>
+$(document).ready () ->
   val = new Validation()
   val.checkName()
 
