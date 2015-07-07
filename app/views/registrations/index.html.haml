@@ -8,7 +8,6 @@
       %th Comment
       %th
       %th
-      %th
 
   %tbody
     - @registrations.each do |registration|
@@ -17,7 +16,6 @@
         %td= registration.email
         %td= registration.comment
         %td= link_to 'Show', registration
-        %td= link_to 'Edit', edit_registration_path(registration)
         %td= link_to 'Destroy', registration, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

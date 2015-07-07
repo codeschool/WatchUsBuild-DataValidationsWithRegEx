@@ -9,11 +9,14 @@
   .field
     = f.label :name
     = f.text_field :name
+    = f.label '(Client)'
   .field
     = f.label :email
     = f.text_field :email
+    = f.label '(Server)'
   .field
     = f.label :comment
+    = f.label '(Database)'
     %hr
     = f.text_area :comment,  style: 'width:100%'
   .actions
