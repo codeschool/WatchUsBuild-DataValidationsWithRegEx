@@ -5,6 +5,10 @@
     %b Name:
     = @company.name
   %p
+    %b Logo:
+    %br
+    = image_tag @company.logo, class: 'logo'
+  %p
     %b Registration:
     %br
     = link_to 'View Registration', @company.registration, class: 'btn btn-info'
