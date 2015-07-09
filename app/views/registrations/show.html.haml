@@ -6,13 +6,13 @@
   %p
     %b Email:
     = @registration.email
+  %p
+    = link_to 'Go To Company', (@registration.company || '#'), class: 'btn btn-info'
+    \|
+    = link_to 'Clean Bad Words', clean_path(id: @registration.id), class: 'btn btn-primary'
 
-- if @registration.denied?
-  .alert.alert-warning
-    This user was not allowed to post their message due to inappropriate content.
--else
-  .well
-    %h4 Comment:
-    %p.paper
-      = @registration.comment
+.well
+  %h4 Comment:
+  %p.paper
+    = @registration.comment
 

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :companies
   root to: 'registrations#new'
-  resources :registrations, only: [:index, :create, :new, :show, :destroy]
+  get 'clean' => 'registrations#clean'
+  resources :registrations
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

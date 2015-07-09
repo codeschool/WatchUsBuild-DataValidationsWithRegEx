@@ -1,15 +1,31 @@
 class Registration < ActiveRecord::Base
 
-  #trigger settings - Changes require: rake db:migrate:redo VERSION=20150707153822
-  COMMENT_PATTERN = "heck|geeze|bad"
-  BAD_COMMENT_TEXT = "This comment has been denied." 
+  has_one :company
+
+  SWAP_PATTERN = /(?=\b((bad|negative|hate)\sregex)\b)(\w+)/
 
   #use rails validates method with regex
   validates :email, format: {with: /\w+@\w+\.com/}
+  after_save :record_company
 
-  #use a keyword that indicates it was denied
-  def denied?
-    comment =~ /denied/
+  #extract company name from email
+  def record_company
+    comp = company || Company.new(registration_id: id)
+    comp.name = email.match('\w+@(\w+)\.(?:com|edu|net|org)')[1]
+    comp.save 
+  end
+
+  #swap bad words that have regex after them.
+  def sub_bad_words
+    return unless comment.match(SWAP_PATTERN) 
+    comment.gsub!(SWAP_PATTERN, 'awesome')
+    sub_message
+    save
+  end
+
+  def sub_message
+    comment.gsub!(/(!Sorry.*denied!)/, '')
+    save
   end
 
 end

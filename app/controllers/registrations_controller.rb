@@ -1,10 +1,14 @@
 class RegistrationsController < ApplicationController
-  before_action :set_registration, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_registration, only: [:show, :edit, :update, :destroy, :clean]
   # GET /registrations
   # GET /registrations.json
   def index
     @registrations = Registration.all
+  end
+
+  def clean
+    @registration.sub_bad_words
+    redirect_to :back 
   end
 
   # GET /registrations/1
