@@ -24,7 +24,7 @@ class Registration < ActiveRecord::Base
   end
 
   def sub_message
-    comment.gsub!(/(!Sorry.*denied!)/, '')
+    comment.gsub!(/(!Sorry.*words!)/, '')
     save
   end
 
