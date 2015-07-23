@@ -6,6 +6,12 @@
         - @registration.errors.full_messages.each do |msg|
           %li= msg
 
+  /html5 regex tester
+  .field
+    = f.label :test_pattern
+    = text_field_tag :test, '', pattern: "[a-z]+"
+    = f.label '(Just for testing Regex)'
+    %span.nameError
   .field
     = f.label :name
     = f.text_field :name
