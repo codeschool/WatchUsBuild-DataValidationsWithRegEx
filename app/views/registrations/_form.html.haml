@@ -8,22 +8,21 @@
 
   /html5 regex tester
   .field
-    = f.label :test_pattern
-    = text_field_tag :test, '', pattern: "[a-z]+"
-    = f.label '(Just for testing Regex)'
-    %span.nameError
+    = f.label :phone
+    = f.text_field :phone, pattern: "\\(\\d{3}\\)\\s?\\d{3}-\\d{4}", placeholder: "(xxx) xxx-xxxx"
+    = f.label 'HTML5 validation / Client'
   .field
     = f.label :name
     = f.text_field :name
-    = f.label '(Client)'
+    = f.label 'Javascript / Client'
     %span.nameError
   .field
     = f.label :email
     = f.text_field :email
-    = f.label '(Server)'
+    = f.label 'Ruby on Rails / Server'
   .field
     = f.label :comment
-    = f.label '(Database)'
+    = f.label 'sqlite3 / Database'
   .actions
     = f.submit 'Save', class: 'btn btn-primary'
     %hr
