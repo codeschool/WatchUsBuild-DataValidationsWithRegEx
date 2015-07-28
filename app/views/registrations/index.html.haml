@@ -1,14 +1,16 @@
 %h1 Listing registrations
 
-%table{id: 'table'}
+.mbm
+  = link_to 'New Registration', new_registration_path, class: 'btn btn-primary'
+  = link_to 'View Companies', companies_path, class: 'btn btn-primary'
+
+%table.table
   %thead
     %tr
       %th Name
       %th Email
       %th Comment
-      %th
-      %th
-      %th
+      %th Actions
 
   %tbody
     - @registrations.each do |registration|
@@ -16,15 +18,12 @@
         %td= registration.name
         %td= registration.email
         %td= registration.comment
-        %td= link_to 'Show', registration, class: 'btn btn-info'
-        %td= link_to 'Validate', edit_registration_path(registration), class: 'btn btn-info'
-        %td= link_to 'Destroy', registration, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-warning'
+        %td
+          = link_to 'Show', registration, class: 'btn btn-info'
+          = link_to 'Validate', edit_registration_path(registration), class: 'btn btn-info'
+          = link_to 'Destroy', registration, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-warning'
 
 %br
-
-= link_to 'New Registration', new_registration_path, class: 'btn btn-primary'
-\|
-= link_to 'View Companies', companies_path, class: 'btn btn-primary'
 
 :javascript
   $('#table').DataTable() 

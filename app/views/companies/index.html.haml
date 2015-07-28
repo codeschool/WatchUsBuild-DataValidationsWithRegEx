@@ -1,24 +1,22 @@
 %h1 Listing companies
 
-%table{id: 'table'}
+.mbm
+  = link_to 'New Company', new_company_path, class: 'btn btn-primary'
+
+%table.table
   %thead
     %tr
       %th Name
-      %th
-      %th
-      %th
+      %th Actions
 
   %tbody
     - @companies.each do |company|
       %tr
         %td= company.name
-        %td= company.name
-        %td= link_to 'View Company', company, class: 'btn btn-info'
-        %td= link_to 'Go to registration', registration_path(company), class: 'btn btn-info'
-        %td= link_to 'Destroy', company, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-warning'
+        %td
+          = link_to 'View Company', company, class: 'btn btn-info'
+          = link_to 'Go to registration', registration_path(company), class: 'btn btn-info'
+          = link_to 'Destroy', company, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-warning'
 
-%br
-
-= link_to 'New Company', new_company_path
 :javascript
-  $('#table').DataTable() 
+  $('#table').DataTable()

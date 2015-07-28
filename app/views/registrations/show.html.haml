@@ -1,18 +1,17 @@
-%p#notice= notice
 .well
-  %p
-    %b Name:
-    = @registration.name
-  %p
-    %b Email:
-    = @registration.email
-  %p
-    = link_to 'Go To Company', (@registration.company || '#'), class: 'btn btn-info'
-    \|
-    = link_to 'Clean Bad Words', clean_path(id: @registration.id), class: 'btn btn-primary'
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Actions
+        %th Comment
 
-.well
-  %h4 Comment:
-  %p.paper
-    = @registration.comment
-
+    %tbody
+      %tr
+        %td= @registration.name
+        %td= @registration.email
+        %td
+          = link_to 'Go To Company', (@registration.company || '#'), class: 'btn btn-info'
+          = link_to 'Clean Bad Words', clean_path(id: @registration.id), class: 'btn btn-primary'
+        %td= @registration.comment

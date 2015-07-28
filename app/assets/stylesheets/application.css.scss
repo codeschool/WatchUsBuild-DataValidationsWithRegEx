@@ -14,3 +14,134 @@
  *= require_tree .
  *= require_self
  */
+
+$c-background: #f6f7f7;
+$c-background-invert: #fff;
+$c-border: #ccc;
+$c-primary: #9957d8;
+$c-secondary: #42aade;
+$c-text: #4d4d4d;
+$c-warning: #d7ce5d;
+$c-error: #d75d6c;
+
+$b-borderRadius: 4px;
+$b-boxShadow: 0 1px 2px rgba(#000, 0.1);
+$b-space: 20px;
+$b-space-s: $b-space * 0.5;
+$b-space-l: $b-space * 2;
+
+body {
+  background: $c-background;
+  color: $c-text;
+}
+
+h1 {
+  margin-bottom: $b-space;
+}
+
+a {
+  color: $c-primary;
+}
+
+/* Utilities */
+
+.mbm {
+  margin-bottom: $b-space;
+}
+
+/* Bootstrap Overrides */
+
+.actions {
+  margin-bottom: $b-space-l;
+}
+
+.btn-primary {
+  background-color: $c-primary;
+  border-color: $c-primary;
+}
+
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+  background-color: darken($c-primary, 7%);
+  border-color: darken($c-primary, 7%);
+}
+
+.btn-info {
+  background-color: $c-secondary;
+  border-color: $c-secondary;
+}
+
+.btn-info:active,
+.btn-info:focus,
+.btn-info:hover {
+  background-color: darken($c-secondary, 7%);
+  border-color: darken($c-secondary, 7%);
+}
+
+.btn-warning {
+  background-color: $c-warning;
+  border-color: $c-warning;
+}
+
+.btn-warning:active,
+.btn-warning:focus,
+.btn-warning:hover {
+  background-color: darken($c-warning, 7%);
+  border-color: darken($c-warning, 7%);
+}
+
+.field {
+  margin-bottom: $b-space;
+}
+
+.field > input,
+.field > textarea {
+  border: 1px solid $c-border;
+  border-radius: $b-borderRadius;
+  padding: 7px;
+}
+
+.field > input {
+  font-size: 16px;
+  margin-right: $b-space-s;
+  min-width: 300px;
+}
+
+.field label:first-child {
+  width: 100px;
+}
+
+.field textarea {
+  font-size: 24px;
+  min-height: 200px;
+  width: 100%;
+}
+
+.navbar-default {
+  background-color: $c-background-invert;
+  border-color: transparent;
+  box-shadow: $b-boxShadow;
+}
+
+.navbar-default .navbar-brand {
+  color: $c-text;
+}
+
+.well {
+  background: $c-background-invert;
+  border: 0;
+  box-shadow: $b-boxShadow;
+}
+
+/* Random */
+
+.logo {
+  height: 100px;
+  width: 150px;
+}
+
+.nameError{
+  color: $c-error;
+  margin-left: $b-space-s;
+}

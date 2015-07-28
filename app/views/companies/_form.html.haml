@@ -9,8 +9,10 @@
   .field
     = f.label :name
     = f.text_field :name
+
   .field
     = f.label :registration_id
     = f.number_field :registration_id
+
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'
