@@ -1,0 +1,33 @@
+= form_for @registration do |f|
+  - if @registration.errors.any?
+    .errors
+      %h2.errors-title= "#{pluralize(@registration.errors.count, "error")} prohibited this registration from being saved:"
+      %ul.errors-list
+        - @registration.errors.full_messages.each do |msg|
+          %li.errors-list-item= msg
+
+  .field
+    = f.label :phone
+    = f.text_field :phone
+    = f.label 'HTML5 Validation / Client'
+
+  .field
+    = f.label :name
+    = f.text_field :name
+    = f.label 'JavaScript / Client'
+    %span.nameError
+
+  .field
+    = f.label :email
+    = f.text_field :email
+    = f.label 'Ruby on Rails / Server'
+
+  .field
+    = f.label :comment
+    = f.label 'sqlite3 / Database'
+
+  .field
+    = f.text_area :comment
+
+  .actions
+    = f.submit 'Save', class: 'btn btn-primary'

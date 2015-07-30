@@ -1,0 +1,28 @@
+%h1 Listing registrations
+
+.mbm
+  = link_to 'New Registration', new_registration_path, class: 'btn btn-primary'
+  = link_to 'View Companies', companies_path, class: 'btn btn-primary'
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Flagged
+      %th Actions
+
+  %tbody
+    - @registrations.each do |registration|
+      %tr
+        %td= registration.name
+        %td= registration.email
+        %td= registration.flagged
+        %td
+          = link_to 'View', registration, class: 'btn btn-info'
+          = link_to 'Destroy', registration, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-warning'
+
+%br
+
+:javascript
+  $('#table').DataTable()

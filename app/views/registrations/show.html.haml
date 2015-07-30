@@ -1,0 +1,19 @@
+.well
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Flagged
+        %th Actions
+        %th Comment
+
+    %tbody
+      %tr
+        %td= @registration.name
+        %td= @registration.email
+        %td= @registration.flagged
+        %td
+          = link_to 'Show Company Info', (@registration.company || '#'), class: 'btn btn-info'
+          = link_to 'Clean Bad Words', clean_path(id: @registration.id), class: 'btn btn-primary'
+        %td= @registration.comment
