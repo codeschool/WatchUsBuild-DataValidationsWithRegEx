@@ -1,3 +1,0 @@
-== Breaking the Ice With Regular Expressions Soup To Bits
-
-This is a sample rails 4 application to test regular expressions on several different layers.
